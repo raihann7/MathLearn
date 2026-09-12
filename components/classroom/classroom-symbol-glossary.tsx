@@ -65,7 +65,8 @@ export function ClassroomSymbolGlossary({
         item.plainMeaning.toLowerCase().includes(q) ||
         item.exampleReading.toLowerCase().includes(q) ||
         item.symbol.toLowerCase().includes(q) ||
-        item.exampleLatex.toLowerCase().includes(q);
+        item.exampleLatex.toLowerCase().includes(q) ||
+        item.visualNicknames?.some((nick) => nick.toLowerCase().includes(q));
 
       return matchCat && matchSearch;
     });
@@ -111,7 +112,7 @@ export function ClassroomSymbolGlossary({
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Cari simbol, nama, atau cara baca (sigma, limit, himpunan)..."
+          placeholder="Cari nama, simbol, atau bentuk visual (contoh: angka 8 tidur, cacing, segitiga, sigma)..."
           className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-8 pr-8 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition font-mono"
         />
         {search && (
@@ -187,7 +188,7 @@ export function ClassroomSymbolGlossary({
               Simbol tidak ditemukan
             </p>
             <p className="text-[11px] text-slate-500">
-              Coba cari dengan kata kunci lain (misal: &apos;sigma&apos;, &apos;anggota&apos;, &apos;integral&apos;).
+              Coba cari dengan nama atau bentuk visual (misal: &apos;angka 8 tidur&apos;, &apos;cacing&apos;, &apos;segitiga&apos;, &apos;e terbalik&apos;, &apos;sigma&apos;).
             </p>
           </div>
         ) : (
@@ -232,6 +233,21 @@ export function ClassroomSymbolGlossary({
                     )}
                   </button>
                 </div>
+
+                {/* Sebutan Bentuk Fisik / Awam */}
+                {item.visualNicknames && item.visualNicknames.length > 0 && (
+                  <div className="flex items-center gap-1.5 flex-wrap -mt-1">
+                    <span className="text-[10px] font-mono text-slate-500">Ciri visual:</span>
+                    {item.visualNicknames.slice(0, 3).map((nick, idx) => (
+                      <span
+                        key={idx}
+                        className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-900/90 border border-slate-800 text-slate-400"
+                      >
+                        {nick}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 {/* 2. Unclipped Math Showcase Area */}
                 <div className="bg-[#070b14] rounded-xl py-3.5 px-4 border border-slate-800/90 flex items-center justify-center min-h-[72px] overflow-x-auto text-center group-hover:border-indigo-500/30 transition-colors">

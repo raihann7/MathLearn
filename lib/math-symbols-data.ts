@@ -7,6 +7,7 @@ export interface MathSymbolItem {
   exampleLatex: string; // Contoh penulisan ekspresi
   exampleReading: string; // Cara membaca contoh rumus
   category: MathSymbolCategory;
+  visualNicknames?: string[]; // Sebutan awam berdasarkan bentuk visual (contoh: "angka 8 tidur", "cacing", "segitiga terbalik")
 }
 
 export const MATH_SYMBOL_CATEGORIES = [
@@ -31,6 +32,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "x = \\pm 3",
     exampleReading: "x sama dengan plus minus 3 (artinya x = 3 atau x = -3)",
     category: "Dasar & Operasi",
+    visualNicknames: ["tambah kurang", "tanda plus di atas minus", "kurang lebih"],
   },
   {
     id: "sym-approx",
@@ -41,6 +43,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\pi \\approx 3{,}14",
     exampleReading: "pi mendekati tiga koma satu empat",
     category: "Dasar & Operasi",
+    visualNicknames: ["gelombang", "ombak dua garis", "sama dengan bergelombang", "taksiran", "kira kira"],
   },
   {
     id: "sym-neq",
@@ -51,6 +54,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "x \\neq 0",
     exampleReading: "x tidak sama dengan nol",
     category: "Dasar & Operasi",
+    visualNicknames: ["sama dengan dicoret", "coret garis miring", "bukan sama dengan"],
   },
   {
     id: "sym-le-ge",
@@ -61,6 +65,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "x \\le 5",
     exampleReading: "x kurang dari atau sama dengan 5 (5 masih termasuk)",
     category: "Dasar & Operasi",
+    visualNicknames: ["lancip garis bawah", "kurang dari", "lebih dari", "moncong"],
   },
   {
     id: "sym-abs",
@@ -71,6 +76,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "|-7| = 7",
     exampleReading: "nilai mutlak dari minus tujuh sama dengan tujuh",
     category: "Dasar & Operasi",
+    visualNicknames: ["dua garis tegak", "pagar", "diapit garis lurus", "modulus"],
   },
   {
     id: "sym-prop",
@@ -81,6 +87,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "F \\propto a",
     exampleReading: "Gaya (F) sebanding dengan percepatan (a)",
     category: "Dasar & Operasi",
+    visualNicknames: ["seperti ikan", "huruf alfa tidur", "sebanding"],
   },
 
   // --- Himpunan & Logika ---
@@ -93,6 +100,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "x \\in \\mathbb{R}",
     exampleReading: "x adalah anggota himpunan bilangan real",
     category: "Himpunan & Logika",
+    visualNicknames: ["huruf e melengkung", "seperti huruf c ada garis tengah", "euro kecil", "anggota"],
   },
   {
     id: "sym-notin",
@@ -103,6 +111,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "-2 \\notin \\mathbb{N}",
     exampleReading: "minus dua bukan anggota bilangan asli",
     category: "Himpunan & Logika",
+    visualNicknames: ["huruf e dicoret", "bukan anggota", "c dicoret tengah"],
   },
   {
     id: "sym-subset",
@@ -113,6 +122,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "A \\subset B",
     exampleReading: "himpunan A adalah himpunan bagian dari B",
     category: "Himpunan & Logika",
+    visualNicknames: ["huruf c melebar", "tapal kuda tidur", "subset"],
   },
   {
     id: "sym-cup",
@@ -123,6 +133,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "A \\cup B",
     exampleReading: "A gabungan B",
     category: "Himpunan & Logika",
+    visualNicknames: ["huruf u", "mangkuk menghadap atas", "cangkir", "union", "gabungan"],
   },
   {
     id: "sym-cap",
@@ -133,6 +144,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "A \\cap B",
     exampleReading: "irisan A dan B",
     category: "Himpunan & Logika",
+    visualNicknames: ["huruf n", "mangkuk terbalik", "atap lengkung", "irisan"],
   },
   {
     id: "sym-emptyset",
@@ -143,6 +155,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "A \\cap B = \\emptyset",
     exampleReading: "irisan A dan B adalah himpunan kosong (tidak ada yang sama)",
     category: "Himpunan & Logika",
+    visualNicknames: ["lingkaran dicoret", "angka nol dicoret garis miring", "kosong", "bulat coret"],
   },
   {
     id: "sym-forall",
@@ -153,6 +166,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\forall x > 0",
     exampleReading: "untuk setiap x yang lebih besar dari nol",
     category: "Himpunan & Logika",
+    visualNicknames: ["huruf a terbalik", "a kebalik", "segitiga terbalik ada tanduk", "untuk semua"],
   },
   {
     id: "sym-exists",
@@ -163,6 +177,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\exists x, \\; x^2 = 4",
     exampleReading: "ada nilai x sedemikian sehingga x kuadrat sama dengan empat",
     category: "Himpunan & Logika",
+    visualNicknames: ["huruf e terbalik", "e hadap kiri", "e kebalik", "ada", "terdapat"],
   },
   {
     id: "sym-implies",
@@ -173,6 +188,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "p \\implies q",
     exampleReading: "jika p maka q",
     category: "Himpunan & Logika",
+    visualNicknames: ["panah ke kanan", "panah tebal", "panah garis ganda", "maka"],
   },
   {
     id: "sym-iff",
@@ -183,6 +199,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "A \\iff B",
     exampleReading: "A jika dan hanya jika B",
     category: "Himpunan & Logika",
+    visualNicknames: ["panah dua arah", "panah bolak balik", "panah kiri kanan"],
   },
   {
     id: "sym-real",
@@ -193,6 +210,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "x \\in \\mathbb{R}",
     exampleReading: "x adalah bilangan real",
     category: "Himpunan & Logika",
+    visualNicknames: ["huruf r garis ganda", "r dua garis", "real"],
   },
   {
     id: "sym-integers",
@@ -203,6 +221,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "n \\in \\mathbb{Z}",
     exampleReading: "n adalah bilangan bulat",
     category: "Himpunan & Logika",
+    visualNicknames: ["huruf z garis ganda", "z dua garis", "bilangan bulat"],
   },
   {
     id: "sym-naturals",
@@ -213,6 +232,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "n \\in \\mathbb{N}",
     exampleReading: "n adalah bilangan asli",
     category: "Himpunan & Logika",
+    visualNicknames: ["huruf n garis ganda", "n dua garis", "bilangan cacah asli"],
   },
 
   // --- Aljabar & Fungsi ---
@@ -225,6 +245,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "(f \\circ g)(x) = f(g(x))",
     exampleReading: "f bundaran g dari x sama dengan f dari g(x)",
     category: "Aljabar & Fungsi",
+    visualNicknames: ["bundaran kecil", "lingkaran kecil di tengah", "titik bolong", "derajat tengah"],
   },
   {
     id: "sym-sigma",
@@ -235,6 +256,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\sum_{i=1}^n x_i",
     exampleReading: "jumlahan x sub-i dari i sama dengan satu sampai n",
     category: "Aljabar & Fungsi",
+    visualNicknames: ["huruf e lancip", "huruf m miring", "seperti huruf w berdiri", "sigma", "total jumlahan"],
   },
   {
     id: "sym-prod",
@@ -245,6 +267,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\prod_{i=1}^n i = n!",
     exampleReading: "perkalian i dari satu sampai n sama dengan n faktorial",
     category: "Aljabar & Fungsi",
+    visualNicknames: ["pintu gerbang", "tiang gawang", "huruf pi besar", "gapura"],
   },
   {
     id: "sym-factorial",
@@ -255,6 +278,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "5! = 120",
     exampleReading: "lima faktorial sama dengan seratus dua puluh",
     category: "Aljabar & Fungsi",
+    visualNicknames: ["tanda seru", "titik di bawah garis", "faktorial"],
   },
   {
     id: "sym-sqrt",
@@ -265,6 +289,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\sqrt{25} = 5",
     exampleReading: "akar dari dua puluh lima sama dengan lima",
     category: "Aljabar & Fungsi",
+    visualNicknames: ["tanda centang ada atap", "centang panjang", "akar"],
   },
   {
     id: "sym-ln",
@@ -275,6 +300,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\ln(e) = 1",
     exampleReading: "len dari e sama dengan satu",
     category: "Aljabar & Fungsi",
+    visualNicknames: ["tulisan ln", "in kecil", "logaritma"],
   },
   {
     id: "sym-pi",
@@ -285,6 +311,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "L = \\pi r^2",
     exampleReading: "Luas sama dengan pi kali r kuadrat",
     category: "Aljabar & Fungsi",
+    visualNicknames: ["dua kaki ada atap mendatar", "meja kecil", "pi", "phi"],
   },
 
   // --- Kalkulus ---
@@ -297,6 +324,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1",
     exampleReading: "limit sin x per x untuk x mendekati nol sama dengan satu",
     category: "Kalkulus",
+    visualNicknames: ["tulisan lim", "panah mendekati", "limit"],
   },
   {
     id: "sym-deriv",
@@ -307,6 +335,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\frac{d}{dx}(x^2) = 2x",
     exampleReading: "turunan dari x kuadrat terhadap x sama dengan dua x",
     category: "Kalkulus",
+    visualNicknames: ["petik satu di atas", "aksen", "d per dx", "turunan"],
   },
   {
     id: "sym-partial",
@@ -317,6 +346,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\frac{\\partial z}{\\partial x}",
     exampleReading: "turunan parsial z terhadap x",
     category: "Kalkulus",
+    visualNicknames: ["huruf d melengkung", "angka 6 terbalik", "d keriting", "del"],
   },
   {
     id: "sym-integral",
@@ -327,6 +357,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\int 2x \\, dx = x^2 + C",
     exampleReading: "integral dari dua x dx sama dengan x kuadrat ditambah konstanta C",
     category: "Kalkulus",
+    visualNicknames: ["cacing berdiri", "huruf s panjang", "gagang payung", "integral"],
   },
   {
     id: "sym-def-integral",
@@ -337,6 +368,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\int_0^2 x \\, dx = 2",
     exampleReading: "integral dari nol sampai dua untuk x dx sama dengan dua",
     category: "Kalkulus",
+    visualNicknames: ["cacing ada angka atas bawah", "integral ada batas", "luas daerah"],
   },
   {
     id: "sym-delta",
@@ -347,6 +379,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "m = \\frac{\\Delta y}{\\Delta x}",
     exampleReading: "gradien m sama dengan delta y dibagi delta x",
     category: "Kalkulus",
+    visualNicknames: ["segitiga", "segitiga sama sisi", "delta", "selisih"],
   },
   {
     id: "sym-infty",
@@ -357,6 +390,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "x \\to \\infty",
     exampleReading: "x menuju tak hingga (x membesar tanpa batas)",
     category: "Kalkulus",
+    visualNicknames: ["angka 8 tidur", "angka 8 miring", "kacamata tidur", "pita tidur", "infinity", "tak hingga"],
   },
 
   // --- Vektor & Geometri ---
@@ -369,6 +403,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\vec{v} = (3, 4)",
     exampleReading: "vektor v dengan komponen tiga dan empat",
     category: "Vektor & Geometri",
+    visualNicknames: ["panah di atas huruf", "topi panah", "vektor"],
   },
   {
     id: "sym-norm",
@@ -379,6 +414,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\|\\vec{v}\\| = \\sqrt{x^2 + y^2}",
     exampleReading: "panjang vektor v sama dengan akar x kuadrat tambah y kuadrat",
     category: "Vektor & Geometri",
+    visualNicknames: ["garis ganda kiri kanan", "dua pasang pagar", "norma", "panjang"],
   },
   {
     id: "sym-det",
@@ -389,6 +425,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\det(A) = ad - bc",
     exampleReading: "determinan A sama dengan a kali d dikurang b kali c",
     category: "Vektor & Geometri",
+    visualNicknames: ["tulisan det", "matriks diapit garis lurus", "determinan"],
   },
   {
     id: "sym-nabla",
@@ -399,6 +436,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\nabla f",
     exampleReading: "gradien dari fungsi f",
     category: "Vektor & Geometri",
+    visualNicknames: ["segitiga terbalik", "segitiga kebalik", "corong terbalik", "nabla"],
   },
   {
     id: "sym-theta",
@@ -409,6 +447,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "\\sin \\theta, \\; \\cos \\theta",
     exampleReading: "sinus teta, kosinus teta",
     category: "Vektor & Geometri",
+    visualNicknames: ["lingkaran ada garis tengah", "telur ceplok", "angka nol ada sabuk", "teta", "sudut"],
   },
   {
     id: "sym-perp",
@@ -419,6 +458,7 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "L_1 \\perp L_2",
     exampleReading: "garis L satu tegak lurus terhadap garis L dua",
     category: "Vektor & Geometri",
+    visualNicknames: ["huruf t terbalik", "t kebalik", "tegak lurus", "siku siku"],
   },
   {
     id: "sym-parallel",
@@ -429,5 +469,6 @@ export const MATH_SYMBOLS_DATABASE: MathSymbolItem[] = [
     exampleLatex: "A \\parallel B",
     exampleReading: "garis A sejajar dengan garis B",
     category: "Vektor & Geometri",
+    visualNicknames: ["dua garis tegak", "dua garis miring sejajar", "rel kereta", "sejajar"],
   },
 ];
